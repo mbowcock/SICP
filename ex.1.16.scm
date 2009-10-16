@@ -4,13 +4,14 @@
       1
       (* b (expo b (- n 1)))))
 
-(define (square n)
-  (* n n))
-
 (define (fast-expt b n)
   (cond ((= n 0) 1)
         ((even? n) (square (fast-expt b (/ n 2))))
         (else (* b (fast-expt b (- n 1))))))
+
+
+(define (square n)
+  (* n n))
 
 (define (fast-expt-iter b n a)
   (cond ((= n 0) a)
@@ -24,4 +25,3 @@
 (fast-expt-new 12 8)
 (fast-expt-iter 12 8 1)
 
-;(expo 10 3)
